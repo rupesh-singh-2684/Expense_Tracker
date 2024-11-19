@@ -1,7 +1,7 @@
-import { View, Text, Image, Dimensions, TouchableOpacity, FlatList, Alert } from 'react-native'
+import { View, Text, Image, Dimensions, TouchableOpacity, FlatList, Alert, ImageBackground } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Icons } from '../../assets'
+import { Icons, Images } from '../../assets'
 import styles from './styles'
 import RBSheet from 'react-native-raw-bottom-sheet'
 import { MoreOptionScreen } from '../../components/modalOptions'
@@ -36,6 +36,7 @@ const HomeScreen = () => {
     Alert.alert("Success", "Expense Deleted successfully!");
   };
 
+
   const renderItem = ({ item }: any) => {
     return (
       <View style={styles.itemContainer}>
@@ -51,21 +52,15 @@ const HomeScreen = () => {
     )
   };
 
-  // Get expenses from Redux state
-  // const allExpense = useSelector((state) => state.tracker.expenses);
-
-  // Calculate the total money spent
   const totalExpense = tracker1
     .reduce((acc, item) => acc + parseFloat(item.moneySpent), 0)
     .toFixed(2);
 
-  // Sort the expenses by date (latest first)
+
   const sortedExpenses = [...tracker1].sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // State for search functionality
   const [searchCategory, setSearchCategory] = useState('');
 
-  // Filter expenses by category
   const filteredExpenses = sortedExpenses.filter((expense) =>
     expense.category.toLowerCase().includes(searchCategory.toLowerCase())
   );
@@ -114,6 +109,10 @@ const HomeScreen = () => {
 
         </RBSheet>
       </SafeAreaView>
+
+          <View>
+            <ImageBackground source={Images.profileImage} style={styles.bgImg}/>
+          </View>
       
         <View style={styles.renderContainer}>
           {tracker1.length === 0 ? (

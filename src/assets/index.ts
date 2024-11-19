@@ -19,7 +19,7 @@ const Icons = {
 }
 
 const Images = {
-    // profileImage:require(`${pathToImages}/profile.jpg`),
+    profileImage:require(`${pathToImages}/expenseGraph.png`),
     // // profileImage1:require(`${pathToImages}/profile1.webp`),
     // profileImage2:require(`${pathToImages}/profile1.jpeg`),
     // // profileImage3:require(`${pathToImages}/profile3.webp`),

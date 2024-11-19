@@ -104,6 +104,9 @@ const styles = StyleSheet.create({
       expenseText: {
         color: '#666',
       },
+      bgImg:{
+        position:'absolute',height:Dimensions.get('window').width,width:Dimensions.get('window').width,alignItems:'center',justifyContent:'center',flex:1,top:100
+      }
      
 })
 
